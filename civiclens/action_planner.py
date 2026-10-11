@@ -8,7 +8,7 @@ class ActionPlanner:
         """Return one actionable suggestion per scheme."""
         return [
             {
-                "scheme_id": scheme.get("id"),
+                "scheme_id": scheme.get("scheme_id", scheme.get("id")),
                 "scheme_name": scheme.get("name", "Unnamed scheme"),
                 "action": (
                     f"Review the eligibility requirements and application process "

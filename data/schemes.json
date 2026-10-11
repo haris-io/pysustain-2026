@@ -1,1 +1,215 @@
-[]
+[
+  {
+    "scheme_id": "tn_first_graduate_tuition_concession_engineering",
+    "name": "First Generation Graduate Tuition Fee Concession for All Engineering College Students",
+    "category": "education",
+    "summary": "Tamil Nadu tuition fee concession for first-generation graduates admitted in the first year or directly into the second year of engineering colleges in the State through Single Window Counselling. Students must obtain a 'No Graduate' certificate from the competent Revenue authority and submit it at the time of counselling.",
+    "benefit_summary": "The allotted college provides the tuition fee concession as per norms and collects only the balance fee; the waived amount is reimbursed to the college by the Directorate of Technical Education. The DTE page lists per-year concession amounts that depend on college category, ranging from Rs 2,000 (Government colleges) to Rs 27,500 (accredited self-financing colleges). The page is undated, so confirm current amounts before relying on them.",
+    "jurisdiction": "Tamil Nadu (engineering colleges in the State admitting through Single Window Counselling)",
+    "eligibility_rules": [
+      {
+        "rule_id": "first_generation_graduate",
+        "field": "first_generation_student",
+        "operator": "equals",
+        "value": true,
+        "label": "Student is a first-generation graduate (the official page requires a 'No Graduate' certificate issued by the competent Revenue authority)",
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+        "required": true
+      },
+      {
+        "rule_id": "engineering_course",
+        "field": "course_type",
+        "operator": "in",
+        "value": ["engineering", "b.e.", "b.tech", "b.e./b.tech"],
+        "label": "Studying or admitted to an engineering course in an engineering college",
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+        "required": true
+      },
+      {
+        "rule_id": "college_in_tamil_nadu",
+        "field": "state",
+        "operator": "equals",
+        "value": "Tamil Nadu",
+        "label": "Engineering college is in Tamil Nadu (the official page covers engineering colleges in the State admitting through Single Window Counselling)",
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+        "required": true
+      }
+    ],
+    "documents": [
+      {
+        "name": "'No Graduate' certificate issued by the competent Revenue authority",
+        "required": true,
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students"
+      }
+    ],
+    "application_steps": [
+      {
+        "step_id": "obtain_no_graduate_certificate",
+        "title": "Obtain the 'No Graduate' certificate",
+        "description": "Get the 'No Graduate' certificate issued by the competent Revenue authority.",
+        "depends_on": [],
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+        "required": true
+      },
+      {
+        "step_id": "submit_certificate_at_counselling",
+        "title": "Submit the certificate at the time of counselling",
+        "description": "Submit the same certificate at the time of Single Window Counselling so that the allotted college can apply the tuition fee concession.",
+        "depends_on": ["obtain_no_graduate_certificate"],
+        "source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+        "required": true
+      }
+    ],
+    "application_url": "",
+    "official_source_url": "https://dte.tn.gov.in/schemes-engineering-students",
+    "source_title": "Directorate of Technical Education, Government of Tamil Nadu - First Generation Graduate Tuition Fee Concession for All Engineering College Students (schemes-engineering-students page)",
+    "verified_on": "2026-10-11",
+    "verification_status": "needs_review",
+    "notes": "Held at needs_review on purpose. The three encoded rules come from the official DTE page, but the same page also makes the concession conditional on admission in the first year or directly into the second year through Single Window Counselling and on the Revenue-authority 'No Graduate' certificate; these cannot be evaluated with the eight profile fields, so a rules-only potential_match would overstate certainty. The DTE page carries no date, and the TNEA information brochure for the current admission cycle could not be opened (tneaonline.org blocked automated access), so continuity for the current cycle is not confirmed. Only engineering colleges are covered by the checked page; concessions for other professional courses were not checked. 'state' in the rule is interpreted as the state where the college is located. Application is made through the counselling process; no application URL was verified. Final decisions rest with the Directorate of Technical Education and the allotted college."
+  },
+  {
+    "scheme_id": "pm_usp_csss_college_university_students",
+    "name": "PM-USP - Central Sector Scheme of Scholarship for College and University Students (CSSS)",
+    "category": "education",
+    "summary": "Merit-based central scholarship of the Department of Higher Education, Ministry of Education, for students above the 80th percentile of successful candidates in their stream in the Class XII board examination who pursue regular graduate or postgraduate degree or professional courses, with gross parental/family income up to Rs 4.5 lakh per annum. Applications are made online on the National Scholarship Portal.",
+    "benefit_summary": "Per the guideline (applicable from academic year 2022-23): Rs 12,000 per annum at graduation level for the first three years and Rs 20,000 per annum at post-graduation level. For 5-year or integrated professional courses, Rs 20,000 per annum in the 4th and 5th year. For technical courses such as B.Tech and B.Engg, Rs 12,000 per annum for years 1 to 3 and Rs 20,000 in the 4th year. Paid by Direct Benefit Transfer to a savings bank account in the student's own name.",
+    "jurisdiction": "India (central scheme; scholarship slots are allotted across State Education Boards)",
+    "eligibility_rules": [
+      {
+        "rule_id": "family_income_limit",
+        "field": "annual_family_income_inr",
+        "operator": "lte",
+        "value": 450000,
+        "label": "Gross parental/family income is up to Rs 4.5 lakh per annum",
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "required": true
+      },
+      {
+        "rule_id": "degree_level_course",
+        "field": "education_level",
+        "operator": "in",
+        "value": ["undergraduate", "postgraduate"],
+        "label": "Pursuing a graduate or postgraduate degree course (diploma courses are excluded)",
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "required": true
+      }
+    ],
+    "documents": [
+      {
+        "name": "Family income certificate (required only for fresh applicants)",
+        "required": true,
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf"
+      },
+      {
+        "name": "Savings bank account in the student's own name",
+        "required": true,
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf"
+      }
+    ],
+    "application_steps": [
+      {
+        "step_id": "apply_on_nsp",
+        "title": "Apply online on the National Scholarship Portal",
+        "description": "Submit the fresh or renewal application online on the National Scholarship Portal (NSP). Applications sent directly to the Ministry of Education are not accepted.",
+        "depends_on": [],
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "required": true
+      }
+    ],
+    "application_url": "https://scholarships.gov.in/",
+    "official_source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+    "source_title": "Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Yojana - Guidelines for the Component Scheme: Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS), Department of Higher Education, Ministry of Education (PDF hosted on the National Scholarship Portal)",
+    "verified_on": "2026-10-11",
+    "verification_status": "needs_review",
+    "notes": "Official guideline read in full on 2026-10-11. Held at needs_review because required criteria cannot be evaluated with the eight profile fields: Class XII board-wise 80th-percentile standing in the relevant stream; not availing any other merit scholarship, State-run scholarship, fee waiver or reimbursement scheme; regular (not correspondence or distance) mode; and an institution recognised by AICTE or the respective regulator with a valid AISHE code. The two encoded rules are only a subset of the criteria, so a rules-only potential_match would be misleading. The NSP scheme listing checked on 2026-10-11 shows the academic year 2026-27 window for this scheme as 'for Renewal' (student applications until 31-10-2026, institute verification until 15-11-2026, nodal officer verification until 30-11-2026); no fresh-application window for this scheme was shown on that page. The NSP home page also announces that from academic year 2026-27 a student may apply for one merit-based scheme and one or more welfare-based schemes. Renewal needs at least 50% marks in the annual examination and at least 75% attendance. Slots are limited (a maximum of 82,000 fresh scholarships per annum, 50% earmarked for girls), so meeting the criteria does not mean selection. Final decisions rest with the Ministry of Education and the verifying authorities on NSP.",
+    "relationships": [
+      {
+        "target_scheme_id": "tn_first_graduate_tuition_concession_engineering",
+        "relation_type": "unknown",
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "source_title": "PM-USP CSSS guidelines, paragraph 4(iv)",
+        "verified_on": "2026-10-11",
+        "verification_status": "needs_review",
+        "notes": "The CSSS guideline excludes students availing any other merit scholarship, State-run scholarship, fee waiver or reimbursement scheme. The Tamil Nadu First Graduate tuition fee concession is a State fee concession reimbursed by the Directorate of Technical Education, but no authoritative source naming the two schemes together was found, so the relationship is not established. Confirm with the scheme authorities before relying on both."
+      },
+      {
+        "target_scheme_id": "tn_moovalur_ramamirtham_pudhumai_penn",
+        "relation_type": "unknown",
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "source_title": "PM-USP CSSS guidelines, paragraph 4(iv)",
+        "verified_on": "2026-10-11",
+        "verification_status": "needs_review",
+        "notes": "The CSSS guideline excludes students availing State-run scholarship schemes, while the Pudhumai Penn press release says that scheme is payable in addition to other scholarships. No authoritative source resolves the two statements, so the relationship is not established."
+      },
+      {
+        "target_scheme_id": "tn_tamizh_pudhalvan",
+        "relation_type": "unknown",
+        "source_url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf",
+        "source_title": "PM-USP CSSS guidelines, paragraph 4(iv)",
+        "verified_on": "2026-10-11",
+        "verification_status": "needs_review",
+        "notes": "The CSSS guideline excludes students availing State-run scholarship schemes. No authoritative source read states how the Tamizh Pudhalvan incentive interacts with CSSS, so the relationship is not established."
+      }
+    ]
+  },
+  {
+    "scheme_id": "tn_moovalur_ramamirtham_pudhumai_penn",
+    "name": "Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme (Pudhumai Penn)",
+    "category": "education",
+    "summary": "Tamil Nadu government scheme that pays Rs 1,000 per month to girl students who studied from Class 6 to 12 in Government schools (as defined in the official press release) and are pursuing a first higher education course such as an arts and science degree, professional, paramedical or diploma course, or ITI. Girls who studied in private schools through RTE in Classes 6 to 8 and in Government schools in Classes 9 to 12 are also covered.",
+    "benefit_summary": "Rs 1,000 per month paid directly into the student's bank account until uninterrupted completion of the undergraduate degree, diploma or ITI course. Per the press release the incentive is paid for the first three years of arts and science courses, the first four years of engineering courses and the first to fifth years of medical studies, is not paid for internship periods, and is payable in addition to other scholarships.",
+    "jurisdiction": "Tamil Nadu (State scheme)",
+    "eligibility_rules": [],
+    "documents": [],
+    "application_steps": [
+      {
+        "step_id": "register_via_college_nodal_officer",
+        "title": "Register with the nodal officer of your college",
+        "description": "Register under the scheme with the nodal officer of the college where you are pursuing higher education; the press release names the scheme website https://www.pudhumaipenn.tn.gov.in.",
+        "depends_on": [],
+        "source_url": "https://kygcms.tn.gov.in/cms_migrated/document/press_release/pr290723_e_1513.pdf",
+        "required": true
+      }
+    ],
+    "application_url": "https://www.pudhumaipenn.tn.gov.in",
+    "official_source_url": "https://kygcms.tn.gov.in/cms_migrated/document/press_release/pr290723_e_1513.pdf",
+    "source_title": "Press Release No. 1513 dated 29.07.2023 - Moovalur Ramamirtham Ammaiyar Higher Education Assurance 'Puthumai Penn' Scheme (DIPR, Government of Tamil Nadu); scheme portal https://www.pudhumaipenn.tn.gov.in",
+    "verified_on": "2026-10-11",
+    "verification_status": "needs_review",
+    "notes": "No eligibility rules are encoded because the main criteria (the student is a girl; schooling from Class 6 to 12 in Government schools as defined by the press release; first higher education course only; regular mode at a recognised institution) cannot be represented with the eight profile fields, and a partial rule on course level would wrongly exclude some covered courses. The press release is dated 29.07.2023; the scheme portal was opened on 2026-10-11 and confirms the Rs 1,000 per month benefit for UG degree, diploma, ITI or any other recognised course, but gives no further criteria. Later changes, such as news reports of an extension to government-aided schools, were NOT verified from an official source. The press release says the incentive is payable in addition to other scholarships, while the PM-USP CSSS guideline excludes students availing State-run scholarships; this conflict is unresolved (see relationships). The press release lists no documents, so none are recorded. Final decisions rest with the Government of Tamil Nadu and the implementing department.",
+    "relationships": [
+      {
+        "target_scheme_id": "pm_usp_csss_college_university_students",
+        "relation_type": "unknown",
+        "source_url": "https://kygcms.tn.gov.in/cms_migrated/document/press_release/pr290723_e_1513.pdf",
+        "source_title": "Press Release No. 1513 dated 29.07.2023 (Pudhumai Penn) and PM-USP CSSS guidelines paragraph 4(iv)",
+        "verified_on": "2026-10-11",
+        "verification_status": "needs_review",
+        "notes": "The Pudhumai Penn press release says students are eligible in addition to other scholarships, but the PM-USP CSSS guideline excludes students availing any State-run scholarship, fee waiver or reimbursement scheme. Whether the two can be held together is not established; confirm with both scheme authorities before applying for both."
+      }
+    ]
+  },
+  {
+    "scheme_id": "tn_tamizh_pudhalvan",
+    "name": "Tamizh Pudhalvan Scheme",
+    "category": "education",
+    "summary": "Tamil Nadu Social Welfare and Women Empowerment Department scheme that provides Rs 1,000 per month as an incentive to boy students who studied in Government Schools (both media) or Government Aided Schools (Tamil medium only) and are pursuing graduation, diploma or Industrial Training Institute courses.",
+    "benefit_summary": "Rs 1,000 per month incentive, as stated in the Government of Tamil Nadu notification of 18 July 2024. Beneficiaries must furnish proof of Aadhaar or undergo Aadhaar authentication under that notification.",
+    "jurisdiction": "Tamil Nadu (State scheme)",
+    "eligibility_rules": [],
+    "documents": [
+      {
+        "name": "Proof of Aadhaar number or Aadhaar authentication (an Aadhaar enrolment slip, a copy of the enrolment request, or one of the other identity documents listed in the notification is accepted until Aadhaar is assigned)",
+        "required": true,
+        "source_url": "https://stationeryprinting.tn.gov.in/extraordinary/2024/230_Ex_II_1_2024.pdf"
+      }
+    ],
+    "application_steps": [],
+    "application_url": "",
+    "official_source_url": "https://stationeryprinting.tn.gov.in/extraordinary/2024/230_Ex_II_1_2024.pdf",
+    "source_title": "Tamil Nadu Government Gazette Extraordinary No. 230, 18 July 2024 - Social Welfare and Women Empowerment Department, G.O. (Ms) No. 42: mandatory use of Aadhaar number for beneficiaries under the Tamizh Pudhalvan Scheme",
+    "verified_on": "2026-10-11",
+    "verification_status": "needs_review",
+    "notes": "The only official source successfully read is the 18 July 2024 Gazette notification, which describes the beneficiaries and the Rs 1,000 monthly incentive in its preamble and sets the Aadhaar requirement. It does not state the class range of schooling, regular-mode or recognised-institution conditions, or the application procedure. The scheme portal (tamilpudhalvan.tn.gov.in) disallowed automated access and could not be checked. No eligibility rules are encoded because the criteria (the student is a boy; type and medium of school attended) cannot be represented with the eight profile fields. Details reported by news sites and scholarship aggregators were not used. No application URL or application steps are recorded because none were verified. Final decisions rest with the Government of Tamil Nadu and the implementing department."
+  }
+]

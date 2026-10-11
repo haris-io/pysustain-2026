@@ -21,9 +21,12 @@ class LLMClient:
         action_by_id = {action["scheme_id"]: action for action in actions}
         for scheme in schemes:
             name = scheme.get("name", "Unnamed scheme")
-            description = scheme.get("description", "").strip()
+            description = (
+                scheme.get("description") or scheme.get("summary") or scheme.get("benefit_summary", "")
+            ).strip()
+            scheme_id = scheme.get("scheme_id", scheme.get("id"))
             lines.append(f"- {name}" + (f": {description}" if description else ""))
-            action = action_by_id.get(scheme.get("id"))
+            action = action_by_id.get(scheme_id)
             if action:
                 lines.append(f"  Next step: {action['action']}")
 
