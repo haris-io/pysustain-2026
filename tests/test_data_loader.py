@@ -275,11 +275,30 @@ def test_every_supported_operator_and_a_matching_field_loads(tmp_path, field, op
     assert record["eligibility_rules"][0]["operator"] == operator
 
 
+#: One valid ``equals`` operand per profile field. The loader validates operand
+#: types per field (numbers for age/income, a Boolean for first-generation), so
+#: the fixture value must match the field's type.
+VALID_EQUALS_OPERAND = {
+    "state": "synthetic",
+    "age": 20,
+    "education_level": "synthetic",
+    "annual_family_income_inr": 100000,
+    "institution_type": "synthetic",
+    "course_type": "synthetic",
+    "academic_year": "synthetic",
+    "first_generation_student": True,
+}
+
+
 @pytest.mark.parametrize("field", PROFILE_FIELDS)
 def test_every_profile_field_is_accepted_in_rules(tmp_path, field):
-    rule = make_rule("rule_x", field, "equals", "synthetic")
+    rule = make_rule("rule_x", field, "equals", VALID_EQUALS_OPERAND[field])
     (record,) = load_records(tmp_path, make_scheme(eligibility_rules=[rule]))
     assert record["eligibility_rules"][0]["field"] == field
+
+
+def test_valid_equals_operand_table_covers_exactly_the_profile_fields():
+    assert set(VALID_EQUALS_OPERAND) == set(PROFILE_FIELDS)
 
 
 def test_valid_documents_including_reuse_group_load(tmp_path):

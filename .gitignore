@@ -1,8 +1,41 @@
-__pycache__/
-*.py[cod]
+# Secrets and local configuration (never commit real keys)
+.env
+.env.*
+!.env.example
+
+# Virtual environments
 .venv/
 venv/
-.env
+env/
+
+# Python bytecode and packaging artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test, type-check and coverage caches
 .pytest_cache/
-coverage.xml
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
 htmlcov/
+
+# Streamlit local state
+.streamlit/secrets.toml
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.swp
+*~
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+
+# Generated logs and temporary files
+*.log
+tmp/

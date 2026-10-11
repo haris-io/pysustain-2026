@@ -1,1 +1,8 @@
-python-dotenv>=1.0,<2.0
+# CivicLens runtime + test dependencies (Python 3.11).
+# Lower bounds are the oldest releases that provide the APIs the code uses
+# (Streamlit chat components; the OpenAI Responses API needs openai >= 1.66).
+# Upper bounds stop an unreviewed major-version jump.
+streamlit>=1.40,<2
+openai>=1.66,<4
+python-dotenv>=1.0,<2
+pytest>=8.0,<10
