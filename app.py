@@ -10,7 +10,7 @@ load_dotenv()
 
 def main():
     """Initialize and run the application."""
-    engine = Engine()
+    engine = Engine(os.getenv("CIVICLENS_DATA_DIR") or None)
     chat_service = ChatService(engine)
     chat_service.start()
 
